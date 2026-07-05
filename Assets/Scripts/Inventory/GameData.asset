@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e88672c5e245cec4d97ad5c1ff8f8701, type: 3}
+  m_Name: GameData
+  m_EditorClassIdentifier: Assembly-CSharp::Inventory.GameData
+  wallTile: {fileID: 11400000, guid: e1307491a422b0e4fbd9214d490133b0, type: 2}
+  roadTile: {fileID: 11400000, guid: 890e293fd4a245e47b5d9d61d06796af, type: 2}
+  groundTile: {fileID: 11400000, guid: 5353bbf77ec450c4388d9f3828baf8e0, type: 2}
+  groundWateredTile: {fileID: 11400000, guid: 62ae7b41e091d0644b448717f1abaf11, type: 2}
+  bombPrefab: {fileID: 4882892669305000052, guid: 19ff2e58e66b06f44bc3948fa3a1520a, type: 3}
+  hammerIcon: {fileID: 5011807186507826969, guid: 83b93d007555984478717372cab6a503, type: 3}
+  wateringCanIcon: {fileID: 4580612837761694388, guid: 2618b58bee1906d48a586e584488aa6c, type: 3}
+  sickleIcon: {fileID: -3364027316350125204, guid: d26cc9cc00889c341808c35e45d238da, type: 3}
+  hoeIcon: {fileID: 4799897571877505922, guid: b71a0c5e61028584caafa6f83c619583, type: 3}
+  coffee: {fileID: 11400000, guid: f5ec95c17f3ef594f98869286aee58f1, type: 2}

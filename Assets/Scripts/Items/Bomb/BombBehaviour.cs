@@ -1,3 +1,4 @@
+using Inventory;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -9,20 +10,18 @@ namespace Items.Bomb
         private Vector3Int _origin;
         private int _up, _down, _left, _right;
         private BombStats _stats;
-        private TileBase _roadTileBase;
 
         private float _timer;
         private bool _isFlashing;
         private GameObject _vRect, _hRect;
         private Renderer _vRenderer, _hRenderer;
 
-        public void Init(Tilemap tilemap, Vector3Int origin, int up, int down, int left, int right, TileBase roadTileBase)
+        public void Init(Tilemap tilemap, Vector3Int origin, int up, int down, int left, int right)
         {
             _tilemap = tilemap;
             _origin = origin;
             _up = up; _down = down; _left = left; _right = right;
             _stats = GetComponent<BombStats>();
-            _roadTileBase = roadTileBase;
             _timer = _stats.explosionTime;
 
             CreateVisuals();
@@ -83,16 +82,22 @@ namespace Items.Bomb
             var pos = _tilemap.WorldToCell(transform.position);
 
             for (var i = -_down; i <= _up; i++)
-                _tilemap.SetTile(pos + new Vector3Int(0, i, 0), _roadTileBase);
+                TryDestroy(pos + new Vector3Int(0, i, 0));
             for (var i = -_left; i <= _right; i++)
             {
                 if (i == 0) continue;
-                _tilemap.SetTile(pos + new Vector3Int(i, 0, 0), _roadTileBase);
+                TryDestroy(pos + new Vector3Int(i, 0, 0));
             }
 
             if (_vRect) Destroy(_vRect);
             if (_hRect) Destroy(_hRect);
             Destroy(gameObject);
+        }
+
+        private void TryDestroy(Vector3Int cell)
+        {
+            if (_tilemap.HasTile(cell))
+                _tilemap.SetTile(cell, GameData.Instance.roadTile);
         }
     }
 }

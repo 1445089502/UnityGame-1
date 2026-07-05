@@ -1,4 +1,5 @@
 ﻿using Stats;
+using Skills.SkillScope;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -12,6 +13,8 @@ namespace Skills.MoveSkill
         private readonly float _speed;
         private Vector3 _targetWorldPosition;
         private bool _isComplete;
+
+        public Vector3Int[] GetRange() => System.Array.Empty<Vector3Int>();
 
         public MoveSkill(GameObject gameObject, Vector3Int targetCell, Tilemap tilemap)
         {

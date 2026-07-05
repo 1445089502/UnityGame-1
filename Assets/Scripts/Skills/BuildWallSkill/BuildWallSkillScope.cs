@@ -4,9 +4,9 @@ using UnityEngine.Tilemaps;
 
 namespace Skills.BuildWallSkill
 {
-    public class BuildWallSkillScope : HighlightScope
+    public class BuildWallSkillScope : RangePreview
     {
         public BuildWallSkillScope(Tilemap tilemap, Vector3Int currentPosition)
-            : base(tilemap, currentPosition, Color.green, type => type == Tile.ColliderType.None) { }
+            : base(tilemap, currentPosition, Color.green, null, type => type == Tile.ColliderType.None) { }
     }
 }

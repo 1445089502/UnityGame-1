@@ -7,24 +7,26 @@ namespace Skills.SkillScope
     {
         private bool _isComplete;
         protected readonly Vector3Int OriginCell;
-        private readonly int _up, _down, _left, _right;
 
-        protected BaseSkillScope(Vector3Int originCell, int up = 1, int down = 1, int left = 1, int right = 1)
+        protected int Up { get; set; } = 1;
+        protected int Down { get; set; } = 1;
+        protected int Left { get; set; } = 1;
+        protected int Right { get; set; } = 1;
+
+        protected BaseSkillScope(Vector3Int originCell)
         {
             OriginCell = originCell;
-            _up = up;
-            _down = down;
-            _left = left;
-            _right = right;
         }
+
+        public BaseSkillScope Scope => this;
 
         public virtual Vector3Int[] GetRange()
         {
             var cells = new List<Vector3Int>();
-            for (var i = 1; i <= _up; i++)    cells.Add(OriginCell + Vector3Int.up * i);
-            for (var i = 1; i <= _down; i++)  cells.Add(OriginCell + Vector3Int.down * i);
-            for (var i = 1; i <= _left; i++)  cells.Add(OriginCell + Vector3Int.left * i);
-            for (var i = 1; i <= _right; i++) cells.Add(OriginCell + Vector3Int.right * i);
+            for (var i = 1; i <= Up; i++)    cells.Add(OriginCell + Vector3Int.up * i);
+            for (var i = 1; i <= Down; i++)  cells.Add(OriginCell + Vector3Int.down * i);
+            for (var i = 1; i <= Left; i++)  cells.Add(OriginCell + Vector3Int.left * i);
+            for (var i = 1; i <= Right; i++) cells.Add(OriginCell + Vector3Int.right * i);
             _isComplete = true;
             return cells.ToArray();
         }

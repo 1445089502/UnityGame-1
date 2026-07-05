@@ -1,16 +1,15 @@
+using Skills.PlaceBombSkill;
 using UnityEngine;
 
 namespace Items.Bomb
 {
     public class BombStats : MonoBehaviour
     {
+        public static BombStats Instance;
+
         [SerializeField] public float explosionTime = 3f;
         [SerializeField] public float flashDuration = 0.5f;
-        [SerializeField] public int up = 2;
-        [SerializeField] public int down = 2;
-        [SerializeField] public int left = 2;
-        [SerializeField] public int right = 2;
-        [SerializeField] public int placementRange = 1;
-        
+        [SerializeField] public ExplosionRange explosion = new();
+        [SerializeField] public Sprite bombSprite;
     }
 }
